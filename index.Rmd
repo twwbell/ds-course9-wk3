@@ -1,0 +1,34 @@
+---
+title: "Some interactive plotting"
+author: "Thomas Bell"
+date: "December 2, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+suppressPackageStartupMessages(library(plotly))
+```
+
+## Introduction
+
+- This presentation is created with R Markdown and knitted with ioslides
+- The purpose is to give a demonstration of an interactive plot, made with Plotly
+- The assignment for this presentation comes from JHU's Data Science Specialization, course 9: Developing Data Products - Week 3 
+
+## Slide with Plot
+
+
+```{r}
+data("ChickWeight")
+
+plot_ly() %>%
+  add_trace(x = ~Time, y = ~weight, 
+          color = ~Chick,
+          mode = "lines", 
+          type = "scatter",
+          data = ChickWeight) %>%
+  
+  layout(title = "Chick Weight")
+```
+
